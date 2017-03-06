@@ -1,0 +1,29 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<!-- 数据库连接配置 -->
+		<property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+		<property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;DataBaseName=Test</property>
+		<property name="hibernate.connection.username">sa</property>
+		<property name="hibernate.connection.password">123456</property>
+			<!-- 生成指定的sql语言 -->
+		<property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
+			<!-- 为了更好的展示效果，在控制台打印sql语句 -->
+		<property name="hibernate.show_sql">true</property>
+			<!-- 格式化sql语句 
+		<property name="hibernate.format_sql">true</property>-->
+			<!-- 自动创建表 -->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		
+		
+		
+		<!-- 加载所有映射 
+		<mapping resource="com/gqx/api/User.hbm.xml"/>
+		
+		 <mapping resource="com/gqx/demo1/User.hbm.xml"/>  \
+		 -->
+	</session-factory>
+</hibernate-configuration>

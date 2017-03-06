@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- 
+	映射文件：映射一个实体类对象；描述一个对象最终实现可以直接保存对象数据到数据库中
+	 -->
+<!-- 
+	package:要映射的对象所在的包（可选，若不指定，则文件的类都要指定全路径
+ -->
+<hibernate-mapping  package="com.gqx.api">
+	
+	<!-- 
+		class：映射的某一个对象（一般情况，一个对象写一个映射文件，寄一个class节点
+		  name：指定要映射的对象的类型
+		  table：对象对应的表（如果没有指定，默认和对象名一样）
+	 -->	
+	<class name="User" table="users2" >
+		<!-- 主键字段 -->	
+		<id name="id" column="uid">
+			<!-- 主键的生成策略
+				native :自增长（功能强大，根据数据库自动选择identity或sequence
+				increment：自增长（会有并发访问的问题，一般在服务器集群环境使用会存在问题）
+				
+				assigned：指定主键生成策略为手动指定主键的值
+				uuid：指定UUID随机生成的唯一的值
+			 -->
+			<generator class="native"/>
+		</id>
+		<!--
+			 非主键
+			 如果列明为数据库的关键字，需要用反引号或改列名
+			 name：指定对象的属性名称
+			 column：指定对象属性对应的表的字段名称
+			 length：指定字符串的长度，默认255
+			 type：指定映射表的字段类型，如果不指定会匹配属性的类型
+			 
+			  -->
+		<property name="name" column="name" type="java.lang.String" length="40"></property>
+		<property name="password" column="password"></property>
+	</class>
+
+
+
+</hibernate-mapping>
